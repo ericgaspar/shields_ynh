@@ -12,7 +12,7 @@ version = "2024-11-02~ynh1"
 maintainers = ["eric_G"]
 
 [upstream]
-license = "AGPL-3.0-only"
+license = "CC0-1.0"
 website = "https://shields.io/"
 admindoc = "https://shields.io/docs"
 code = "https://github.com/badges/shields"
@@ -56,4 +56,3 @@ ram.runtime = "512M"
     main.url = "/"
 
     [resources.ports]
-
