@@ -1,1 +1,0 @@
-Par défaut, juste après installation, un compte nommé `Admin` est créé et accessible avec le mot de passe `dodoc` en cliquant sur le bouton « se connecter », tout en haut à droite de la page d’accueil.

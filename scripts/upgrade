@@ -22,14 +22,7 @@ ynh_nodejs_install
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="settings.json"
-
-#=================================================
-# UPDATE A CONFIG FILE
-#=================================================
-ynh_script_progression "Updating $app's configuration files..."
-
-ynh_config_add --template="settings.example.json" --destination="$install_dir/settings.json"
+ynh_setup_source --dest_dir="$install_dir" --full_replace
 
 #=================================================
 # INSTALL DODOC
@@ -37,7 +30,8 @@ ynh_config_add --template="settings.example.json" --destination="$install_dir/se
 ynh_script_progression "Installing $app..."
 
 pushd "$install_dir"
- 	ynh_hide_warnings ynh_exec_as_app npm install
+ 	ynh_hide_warnings ynh_exec_as_app npm ci
+ 	ynh_hide_warnings ynh_exec_as_app npm run build
 popd
 
 #=================================================
@@ -49,14 +43,14 @@ ynh_config_add_nginx
 
 ynh_config_add_systemd
 
-yunohost service add "$app" --description="Documentation tool for creativity" --log="/var/log/$app/$app.log"
+yunohost service add "$app" --description="Legible badges in SVG" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service="$app" --action="start" --log_path="systemd" --wait_until="Server up and running"
+ynh_systemctl --service="$app" --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT

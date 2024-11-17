@@ -1,1 +1,0 @@
-By default, just after installation, an account named `Admin` is created and accessible with the password `dodoc` by clicking on the “connect” button, at the top right of the home page.
